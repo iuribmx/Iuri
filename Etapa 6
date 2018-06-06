@@ -3,14 +3,14 @@ var yi=250
 var x =20
 var qy = 250
 var y = 260
-var u= 5
+var u= 2
 var dt=5
 var dx=x
 var disparo = false
 var dy= y
 var qy2=0
-var u2=7
-var ui=0
+var u2=3
+var ui=1
 var colisao = false
 var raio= 10
 var raio2 = 5
@@ -25,7 +25,7 @@ var c = 0
 
 function setup() {
   createCanvas(500, 500);
-  frameRate(20);
+  frameRate(60);
   x=10
 }
 
