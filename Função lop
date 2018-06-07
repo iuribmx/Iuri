@@ -1,0 +1,24 @@
+var x,y,z;
+function raiz(){
+a=prompt("digite um numero");
+b=prompt("digite um numero");
+c=prompt("digite um numero");
+x=(b*b)-(4*a*c);
+y=(-b+(Math.sqrt(x,2)))/(2*a);
+z=(-b-(Math.sqrt(x,2)))/(2*a);
+if(z!=0 && y!=0 && z!=y && x>0){
+alert("X1: "+z+" e "+"X2: "+y)
+}
+if(z==0 && y!=0){
+alert("X: "+y)
+}
+if(z!=0 && y==0){
+alert("X: "+ z)
+}
+if(x<0){
+alert("Nenhuma raiz")
+}
+if(z==y){
+alert("X: "+ y)}
+}
+raiz()
