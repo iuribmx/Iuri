@@ -22,3 +22,29 @@ if(z==y){
 alert("X: "+ y)}
 }
 raiz()
+
+
+var x, tam=6, chuva[], nome[], achou=false, dado, maior=1
+	alert("Inicializando o programa");
+	function cadastro(){
+		for(i=0;i<tam;i++){
+			chuva[i] = parseFloat(prompt("digite os mm"))
+			nome[i] = prompt("digite a cidade")
+		}
+		}
+		dado = prompt("que cidade voce quer buscar?")
+		function achou(){
+		for(i=0;i<tam;i++){
+			if(nome[i]==dado){
+				alert(chuva[i]+" mm")
+				achou = true
+			}
+		}
+		}
+		function nachou(){
+		if(achou==false){
+			alert("cidade nao encontrada")
+		}
+		}
+	x = 	(cadastro+achou+nachou)
+ alert(x)
