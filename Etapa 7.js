@@ -77,9 +77,10 @@ function draw() {
   if(qy>height)
   {qy = random(-500,0)
   }
-  ellipse(xvida,yvida,10,10);
-  xvida= xvida-u
   
+  ellipse(xvida,yvida,10,10);
+  //VIDAS//
+  xvida= xvida-u
   if(xvida<0)
   {xvida = random(500,2000)
   xvida= xvida-u
@@ -152,6 +153,7 @@ function draw() {
   
   
   rect(xi, yi,largi,comprimentoi)
+  //INIMIGO//
   yi=yi+ui
   if(yi>350){
     ui= -ui
