@@ -49,15 +49,13 @@ function keyPressed(){
   disparo=true
   dx= x
   dy= y
-  }
-  
-  if (tempo%tempodisparo==0){ //DISPARO DO INIMIGO//
+  } 
+if (tempo%tempodisparo==0){ //DISPARO DO INIMIGO//
     disparoo = true; 
     ao=xi;
     bo=yi;
     
   }
-
 }
 
 function draw() {
@@ -77,9 +75,10 @@ function draw() {
   if(qy>height)
   {qy = random(-500,0)
   }
-  
+   fill(255,255,0)
   ellipse(xvida,yvida,10,10);
   //VIDAS//
+ 	fill(255)
   xvida= xvida-u
   if(xvida<0)
   {xvida = random(500,2000)
@@ -108,7 +107,7 @@ function draw() {
   }
     
   
-
+fill(255)
   ellipse(x, y, 20, 40)
   fill(200,20,90);
   if(keyIsDown(DOWN_ARROW))
@@ -125,11 +124,12 @@ function draw() {
   }
  
   ellipse(dx,dy,10,5)
-  //COLISAO//
+  //COLISAO NO INIMIGO//
   if(dy>yi && dy<(20+yi)){
   if(dist(dx+5,0,xi,0)>0 &&dist(dx+5,0,xi,0)<20){
     colisao = true
     c=c+1
+    pontos = pontos + 5;
   }
     
   }
@@ -170,10 +170,13 @@ function draw() {
   fill(255);
   text("Vidas: "+vidas, 10, 30);
   text("Pontos: "+pontos, 100, 30);
-  text("Nivel : "+nivel, 200,30);;
-  
- 
+  text("Nivel : "+nivel, 220,30);;
+  // incremento de pontos 
+  //pontos = pontos + 10; 
+  if (pontos>barreiraDePontos) {
+    nivel=nivel+1;
+    barreiraDePontos = barreiraDePontos + 50; 
 
- 
- 
+  }
 }
+ 
