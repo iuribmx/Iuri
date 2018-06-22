@@ -70,24 +70,19 @@ function setup() {
   }
 }
 
-function keyPressed(){
+function keyPressed(){ //DISPARO//
   if((keyCode  === CONTROL)&&(!disparo)){
   disparo=true
   dx= x
   dy= y
   }
-  if (tempo%tempodisparo==0){ // DISPARO DO INIMIGO//
-    disparoo = true; 
-    ao=xi;
-    bo=yi;
-    
-  }
+  
 }
 
 function draw() {
 
  // IMAGEM JOGADOR
-
+	tempo++	
   background(0);
   //QUADRADOS BACKGROUND// 
   for ( i = 0; i < qt; i++) {
@@ -115,7 +110,7 @@ if(xvida<0){
 	  
   //QUADRADOS BACKGROUND FIM!//
   fill(255);
-  rect(280,qy2,10,40);
+  rect(280,qy2,10,80);
   qy2= qy2+u2
    if(qy2>460)
   {u2= -u2
@@ -123,9 +118,9 @@ if(xvida<0){
   if(qy2<0)
   {u2= -u2
   }
-  rect(150,qy,10,40);
+  rect(150,qy,10,80);
   qy= qy+u
-  if(disparo){ //DISPARO//
+  if(disparo){ //velocidade do DISPARO//
     dx= dx+20
   }
   if(dx>width){
@@ -135,7 +130,14 @@ if(xvida<0){
   if(qy>height)
   {qy = random(-500,0)
   }
-   
+  ellipse(dx,dy,10,5)//BALA//
+  
+   if (tempo%tempodisparo==0){ // DISPARO DO INIMIGO//
+    disparoo = true; 
+    ao=xi;
+    bo=yi;
+    
+  }
   if (disparoo) { // velocidade de disparo do inimigo
     ao=ao-vdo;
     if (ao> width) {
@@ -175,7 +177,7 @@ if(xvida<0){
     y=460
   }
  
-  ellipse(dx,dy,10,5)//BALA//
+  
   //COLISAO//
  
   if(dy>yi && dy<(20+yi)){
@@ -240,7 +242,42 @@ if(xvida<0){
   else if (c==28){
 	  fill(0,104,139)
   }
-
+  if ( dist(ao,bo,x,y) < largi+comprimentoi ) { //colisaão com o ajogador e perda de vida
+  
+      vidas--   
+      ao-=400
+     
+ }
+ 
+   if((ao<=90 && bo>60 && bo<190) || (ao<=90 && bo>330 && bo<460)){
+   ao-=100
+    /*if ( colisaoo == false) {  
+      
+       colisaoo = true;
+    }
+  }
+  if((dx>=50 && dx<80 && dy>60 && dy<190) || (dx>=50&& dx<80 && dy>330 && dy<460)){
+   dx+=700
+    if ( colisao == false) {  
+      
+       colisao = true;
+    }
+  }
+  
+  if((ao>=200 && ao<220 && bo>qy && bo<(70+qy)) || (ao>=200 && ao<220 && bo>qy2 && bo<(70+qy2))){
+   ao+=700
+    if ( colisaoo == false) {  
+      
+       colisaoo = true;
+    }
+  }
+  if((dx>=200 && dx<220 && dy>qy && dy<(70+qy)) || (a>=200 && a<220 && b>qy2 && b<(70+qy2))){
+   dx+=700
+    if ( colisao == false) {  
+      
+       colisao = true;
+    }
+*/
  /*if(colisao){
 	 dx= 1000;
 	 }
@@ -251,7 +288,7 @@ if(xvida<0){
  
   
   
-if(largi!=0){
+if(largi!=0){//desenho do inimigo
 	if(c<6){
   rect(xi, yi,largi,comprimentoi)
 }
@@ -287,3 +324,9 @@ if(c>=24 && c<=28){
   text("Vidas: "+vidas, 100, 30);
   }
 
+if(vidas<0){
+  background(0);
+  textSize(50);
+  text("GAME OVER",110,250)
+}
+}
