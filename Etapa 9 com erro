@@ -1,4 +1,5 @@
 var c1=c
+var x1 = false
 var xi=479
 var yi=250
 var x =20
@@ -75,13 +76,17 @@ function keyPressed(){ //DISPARO//
   if((keyCode  === CONTROL)&&(!disparo)){
   disparo=true
   dx= x
-  dy= y
+  dy= (y+18)
   }
   
 }
 
 function draw() {
-
+if(x1==false && keyIsDown(13)){
+  		x1=true
+  }
+  
+  if(x1==true){
  // IMAGEM JOGADOR
 	tempo++	
   background(0);
@@ -111,7 +116,7 @@ if(xvida<0){
 	  
   //QUADRADOS BACKGROUND FIM!//
   fill(255);
-  rect(280,qy2,10,80);
+  rect(280,qy2,10,80);//RETANGULO1
   qy2= qy2+u2
    if(qy2>460)
   {u2= -u2
@@ -119,7 +124,7 @@ if(xvida<0){
   if(qy2<0)
   {u2= -u2
   }
-  rect(150,qy,10,80);
+  rect(150,qy,10,80);//RETANGULO2
   qy= qy+u
   if(disparo){ //velocidade do DISPARO//
     dx= dx+20
@@ -136,7 +141,7 @@ if(xvida<0){
    if (tempo%tempodisparo==0){ // DISPARO DO INIMIGO//
     disparoo = true; 
     ao=xi;
-    bo=yi;
+    bo=(yi+10);
     
   }
   if (disparoo) { // velocidade de disparo do inimigo
@@ -279,6 +284,13 @@ if(xvida<0){
        colisao = true;
     }
    }
+   if(colisao){ // colisão com o adversario e desaparecimento do tiro
+    dx=600
+    dy=600
+    
+    colisao = false
+  }
+*/
 
  /*if(colisao){
 	 dx= 1000;
@@ -331,4 +343,16 @@ if(vidas<0){
   textSize(50);
   text("GAME OVER",110,250)
 }
+}
+else{
+     background(50);
+     fill(255);
+  	textSize(25);
+  	text("Pressione ENTER para iniciar o jogo",30,250)
+  }
+  if(nivel>5){
+  background(0);
+  textSize(35);
+  text("PARABÉNS VOCÊ VENCEU",30,250)
+  }
 }
