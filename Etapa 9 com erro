@@ -22,6 +22,7 @@ var qy2=0
 var u2=3
 var ui=0
 var colisao = false
+var colisaoo = false
 var raioi = 10
 var raio= 10
 var raio2 = 5
@@ -251,7 +252,7 @@ if(xvida<0){
  
    if((ao<=90 && bo>60 && bo<190) || (ao<=90 && bo>330 && bo<460)){
    ao-=100
-    /*if ( colisaoo == false) {  
+    if ( colisaoo == false) {  
       
        colisaoo = true;
     }
@@ -271,13 +272,14 @@ if(xvida<0){
        colisaoo = true;
     }
   }
-  if((dx>=200 && dx<220 && dy>qy && dy<(70+qy)) || (a>=200 && a<220 && b>qy2 && b<(70+qy2))){
+  if((dx>=200 && dx<220 && dy>qy && dy<(70+qy)) || (dx>=200 && a<220 && dy>qy2 && dy<(70+qy2))){
    dx+=700
     if ( colisao == false) {  
       
        colisao = true;
     }
-*/
+   }
+
  /*if(colisao){
 	 dx= 1000;
 	 }
