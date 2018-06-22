@@ -1,4 +1,4 @@
-var c1=c
+ar c1=c
 var xi=479
 var yi=250
 var x =20
@@ -111,7 +111,7 @@ if(xvida<0){
 	  
   //QUADRADOS BACKGROUND FIM!//
   fill(255);
-  rect(280,qy2,10,80);
+  rect(280,qy2,10,80);//RETANGULO1
   qy2= qy2+u2
    if(qy2>460)
   {u2= -u2
@@ -119,7 +119,7 @@ if(xvida<0){
   if(qy2<0)
   {u2= -u2
   }
-  rect(150,qy,10,80);
+  rect(150,qy,10,80);//RETANGULO2
   qy= qy+u
   if(disparo){ //velocidade do DISPARO//
     dx= dx+20
@@ -250,7 +250,7 @@ if(xvida<0){
      
  }
  
-   if((ao<=90 && bo>60 && bo<190) || (ao<=90 && bo>330 && bo<460)){
+   /*if((ao<=90 && bo>60 && bo<190) || (ao<=90 && bo>330 && bo<460)){
    ao-=100
     if ( colisaoo == false) {  
       
@@ -279,6 +279,13 @@ if(xvida<0){
        colisao = true;
     }
    }
+   if(colisao){ // colisão com o adversario e desaparecimento do tiro
+    dx=600
+    dy=600
+    
+    colisao = false
+  }
+*/
 
  /*if(colisao){
 	 dx= 1000;
@@ -331,4 +338,15 @@ if(vidas<0){
   textSize(50);
   text("GAME OVER",110,250)
 }
+
+else{
+     background(50);
+  	textSize(25);
+  	text("Pressione ENTER para iniciar o jogo",30,250)
+  }
+  if(nivel>5){
+  background(0);
+  textSize(35);
+  text("PARABÉNS VOCÊ VENCEU",30,250)
+  }
 }
