@@ -290,7 +290,7 @@ if(xvida<0){
     
     colisao = false
   }
-*/
+
 
  /*if(colisao){
 	 dx= 1000;
