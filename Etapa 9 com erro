@@ -21,7 +21,7 @@ var dx2=20
 var dy2=280
 var qy2=0
 var u2=3
-var ui=0
+var ui=2
 var colisao = false
 var colisaoo = false
 var raioi = 10
@@ -102,7 +102,8 @@ if(x1==false && keyIsDown(13)){
     rect(vx[i], vy[i], vtam[i], vtam[i])
   }
   //VIDAS!!//
- fill(0,238,0)
+
+    fill(0,238,0)
  ellipse(xvida,yvida,14,14)
 
  xvida=xvida-uvida
@@ -112,7 +113,6 @@ if(xvida<0){
 	yvida= random(0,500)
 }
 
-   
 	  
   //QUADRADOS BACKGROUND FIM!//
   fill(255);
@@ -266,7 +266,12 @@ if(xvida<0){
 	 disparo = false;
 	
   }
-   if(   dist(x,y,xvida+14/2.0,yvida+14/2.0) < 7 + sqrt( (14/2)*(14/2) + (14/2)*(14/2) )){	
+   if(   dist(x,y,xvida+14/2,yvida+14/2) < (7 + sqrt( (28/2)*(28/2) + (28/2)*(28/2)) )){	
+	   
+	xvida = random(1000,2500)
+	xvida = xvida-uvida
+	yvida= random(0,500)
+	vidas++
 	   colisao = true;
 	 console.log("colidiu"+ xvida + " " + yvida + " "+ y);
   }
@@ -304,7 +309,7 @@ if(c>=18 && c<24){
 	rect(xi,yi,10,10)
 }
 if(c>=24 && c<=28){
-	ellipse(xi,yi,10,10)
+	ellipse(xi,yi,10,10)	
 }
 }
   yi=yi+ui
